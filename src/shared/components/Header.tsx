@@ -53,13 +53,13 @@ export function Header(): React.ReactElement {
   const lastRouteIndex = routes.length - 1;
 
   return (
-    <header className="min-w-full flex items-center whitespace-nowrap gap-x-8 py-6">
+    <header className="max-w-4/5 mx-auto flex justify-center items-center gap-x-4 py-6">
       {routes.map((route: HeaderElement, index: number) => (
-        <section className="w-full flex items-center gap-4">
+        <section className="w-full flex items-center gap-x-4">
           <a
             key={index}
             href={route.route || "#"}
-            className="flex justify-center items-center gap-x-3 cursor-pointer"
+            className="flex items-center whitespace-nowrap gap-x-2 cursor-pointer"
           >
             <span
               className={route.isActive ? "text-blue-700" : "text-gray-500"}
@@ -77,7 +77,7 @@ export function Header(): React.ReactElement {
           {/* Render separator only if the route has a separator and it's not the last route */}
           {route.hasSeparator && index < lastRouteIndex && (
             <div
-              className={`w-full h-px ${
+              className={`w-15 h-px ${
                 route.isActive ? "bg-blue-700" : "bg-gray-500"
               }`}
             />
