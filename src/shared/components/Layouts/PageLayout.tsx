@@ -18,7 +18,7 @@ export function PageLayout({
   usePageTitle({ title, localizationKey });
 
   return (
-    <div className="w-4/5 mx-auto">
+    <div className="w-4/6 mx-auto">
       <Header />
       <main>{children}</main>
     </div>

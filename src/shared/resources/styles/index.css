@@ -6,8 +6,9 @@
 @import "./themes/default.css" layer(base);
 
 @theme inline {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
+  --primary-color: var(--primary);
+  --secondary-color: var(--secondary);
+  --background-color: var(--background);
 
   /* Fonts */
   --font-heading: var(--font-heading);

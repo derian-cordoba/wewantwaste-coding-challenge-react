@@ -59,14 +59,16 @@ export function Header(): React.ReactElement {
           <a
             key={index}
             href={route.route || "#"}
-            className={`flex justify-center items-center gap-x-3 cursor-pointer ${
-              route.isActive ? "text-blue-500" : "text-gray-200"
-            }`}
+            className="flex justify-center items-center gap-x-3 cursor-pointer"
           >
-            {route.icon}
+            <span
+              className={route.isActive ? "text-blue-700" : "text-gray-500"}
+            >
+              {route.icon}
+            </span>
 
             {/* Use localized label if available, otherwise fallback to label */}
-            <span>
+            <span className={route.isActive ? "text-white" : "text-gray-500"}>
               {(route.localizedLabelKey && t(route.localizedLabelKey)) ||
                 route.label}
             </span>
@@ -76,7 +78,7 @@ export function Header(): React.ReactElement {
           {route.hasSeparator && index < lastRouteIndex && (
             <div
               className={`w-full h-px ${
-                route.isActive ? "bg-blue-500" : "bg-gray-200"
+                route.isActive ? "bg-blue-700" : "bg-gray-500"
               }`}
             />
           )}
