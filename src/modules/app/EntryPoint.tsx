@@ -1,7 +1,7 @@
 // Call the initialization file
 import "@/modules/app/utils/initializator";
 
-import { SelectSkip } from "./pages/SelectSkip";
+import { SelectSkip } from "@/modules/select-skip/pages";
 
 // Usually, in this file, you would import the main component of your app,
 // routing component that serves as the entry point for your application,

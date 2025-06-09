@@ -1,6 +1,7 @@
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 
 export type SearchBarProps = {
+  // Search handler function
   onSearch?: (searchTerm?: string) => Promise<void> | void;
 
   // Filter button click handler
@@ -19,14 +20,14 @@ export function SearchBar({
   };
 
   return (
-    <div className="flex justify-between border border-[var(--border-medium-gray-color)] rounded-xl h-20">
+    <div className="flex justify-between h-20 border border-[var(--border-medium-gray-color)] rounded-xl">
       <section className="w-full px-12 py-4">
         <input
           type="text"
           name="search"
           onChange={handleSearchChange}
           placeholder="Search"
-          className="w-full py-2 px-4 border border-[var(--border-light-gray-color)] text-white rounded-[10px]"
+          className="w-full py-2 px-4 text-white border border-[var(--border-light-gray-color)] rounded-[10px]"
         />
       </section>
 
