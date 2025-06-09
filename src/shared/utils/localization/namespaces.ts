@@ -1,6 +1,7 @@
 export enum Namespace {
-  SELECT_SKIP = "select-skip",
   COMMON = "common",
+  HEADER = "header",
+  SELECT_SKIP = "select-skip",
 }
 
 // All namespaces used in the application
