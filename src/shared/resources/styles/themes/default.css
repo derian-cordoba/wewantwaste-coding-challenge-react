@@ -1,0 +1,25 @@
+[data-theme="default"] {
+  --primary: #0573f0;
+  --secondary: #0769da;
+
+  --font-body: "Nunito", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
+  p,
+  span,
+  label,
+  a,
+  li,
+  button {
+    font-family: var(--font-body);
+  }
+}

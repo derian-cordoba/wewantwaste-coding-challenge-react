@@ -1,0 +1,4 @@
+/* Global variables shared in all themes */
+:root {
+  --blue-light: #adddff;
+}
