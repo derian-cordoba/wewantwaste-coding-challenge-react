@@ -3,6 +3,7 @@ import {
   type PageTitleProps,
   usePageTitle,
 } from "@/modules/app/hooks/usePageTitle";
+import { Header } from "@/shared/components/Header";
 
 export type PageLayoutProps = PageTitleProps & {
   // Add more props if needed in the future
@@ -16,5 +17,10 @@ export function PageLayout({
   // Set the page title using the provided title prop
   usePageTitle({ title, localizationKey });
 
-  return <main>{children}</main>;
+  return (
+    <div className="w-4/5 mx-auto">
+      <Header />
+      <main>{children}</main>
+    </div>
+  );
 }
