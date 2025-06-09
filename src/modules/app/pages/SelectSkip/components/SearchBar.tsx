@@ -1,0 +1,41 @@
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+
+export type SearchBarProps = {
+  onSearch?: (searchTerm?: string) => Promise<void> | void;
+
+  // Filter button click handler
+  onFilterClick?: () => Promise<void> | void;
+};
+
+export function SearchBar({
+  onSearch,
+  onFilterClick,
+}: SearchBarProps): React.ReactElement {
+  // Wrapper function to handle search input changes`
+  const handleSearchChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): Promise<void> => {
+    await onSearch?.(event.target.value);
+  };
+
+  return (
+    <div className="flex justify-between border border-[var(--border-medium-gray-color)] rounded-xl h-20">
+      <section className="w-full px-12 py-4">
+        <input
+          type="text"
+          name="search"
+          onChange={handleSearchChange}
+          placeholder="Search"
+          className="w-full py-2 px-4 border border-[var(--border-light-gray-color)] text-white rounded-[10px]"
+        />
+      </section>
+
+      <button
+        onClick={onFilterClick}
+        className="flex justify-center items-center bg-[var(--medium-gray-color)] py-6 px-10 rounded-r-xl cursor-pointer"
+      >
+        <AdjustmentsHorizontalIcon className="w-8 h-8 text-white" />
+      </button>
+    </div>
+  );
+}

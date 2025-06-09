@@ -9,6 +9,9 @@
   --primary-color: var(--primary);
   --secondary-color: var(--secondary);
   --background-color: var(--background);
+  --medium-gray-color: var(--medium-gray);
+  --border-medium-gray-color: var(--border-medium-gray);
+  --border-light-gray-color: var(--border-light-gray);
 
   /* Fonts */
   --font-heading: var(--font-heading);
