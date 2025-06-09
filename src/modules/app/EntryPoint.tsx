@@ -8,7 +8,7 @@ export function EntryPoint() {
   const { t } = useTranslation();
 
   return (
-    <PageLayout>
+    <PageLayout localizationKey="common:page.title">
       <p>{t("choose.your.skip.size")}</p>
     </PageLayout>
   );
