@@ -1,5 +1,6 @@
 export enum Namespace {
   COMMON = "common",
+  FILTER = "filter",
   HEADER = "header",
   SELECT_SKIP = "select-skip",
 }

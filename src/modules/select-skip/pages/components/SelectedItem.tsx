@@ -27,7 +27,7 @@ export function SelectedItem({
         />
       </section>
 
-      <section className="flex flex-col justify-between gap-y-4 w-4/6 relative py-6 px-[64px]">
+      <section className="flex flex-col justify-between gap-y-8 w-4/6 relative py-6 px-[64px]">
         {/* Not allowd warning section */}
         {!item.allowed_on_road && (
           <article className="flex gap-x-4 h-fit w-fit py-2 px-6 absolute right-0 bg-red-600 text-white">
@@ -56,7 +56,7 @@ export function SelectedItem({
 
         {/* Item price + continue button section */}
         <article className="flex justify-between items-center">
-          {/* For this coding-challenge, I will skip the internalization, so, for all items, will use the "£" symbol */}
+          {/* For this coding-challenge, I will skip the internationalization, so, for all items, will use the "£" symbol */}
           <p className="text-3xl text-primary-color">
             £{item.price_before_vat}
           </p>
