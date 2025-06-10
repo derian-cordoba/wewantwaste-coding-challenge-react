@@ -6,7 +6,7 @@
 @import "./themes/default.css" layer(base);
 
 @theme inline {
-  --primary-color: var(--primary);
+  --color-primary-color: var(--primary);
   --secondary-color: var(--secondary);
   --background-color: var(--background);
   --medium-gray-color: var(--medium-gray);

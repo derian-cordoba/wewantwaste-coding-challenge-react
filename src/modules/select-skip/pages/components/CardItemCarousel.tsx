@@ -1,6 +1,12 @@
 import type { SkipItem } from "@/modules/select-skip/types/SkipItem";
 import { CardItem } from "./CardItem";
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/shared/components/ui/carousel";
 export type CardItemCarouselProps = {
   items: SkipItem[];
   selectedItem?: SkipItem;
@@ -13,22 +19,23 @@ export function CardItemCarousel({
   onItemClick,
 }: CardItemCarouselProps): React.ReactElement {
   return (
-    <div className="w-full overflow-x-auto">
-      <section className="flex gap-x-5 min-w-max">
+    <Carousel
+      opts={{
+        align: "start",
+      }}
+    >
+      <CarouselContent>
         {items?.map((item: SkipItem) => (
-          <article
-            key={item.id}
+          <CarouselItem
+            className="basis-1/4 select-none"
             onClick={() => onItemClick(item)}
-            className={`w-[400px] shrink-0 border-4 rounded-xl ${
-              selectedItem?.id === item.id
-                ? "border-[var(--primary-color)]"
-                : "border-transparent"
-            }`}
           >
-            <CardItem item={item} />
-          </article>
+            <CardItem item={item} isSelected={selectedItem?.id === item.id} />
+          </CarouselItem>
         ))}
-      </section>
-    </div>
+      </CarouselContent>
+      <CarouselPrevious className="text-[#B0B0B0] bg-[#262626] cursor-pointer" />
+      <CarouselNext className="text-[#B0B0B0] bg-[#262626] cursor-pointer" />
+    </Carousel>
   );
 }
