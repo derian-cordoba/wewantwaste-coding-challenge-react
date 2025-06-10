@@ -2,6 +2,7 @@
 import { PageLayout } from "@/shared/components/Layouts/PageLayout";
 // import { Namespace } from "@/shared/utils/localization/namespaces";
 import { SearchBar } from "./components/SearchBar";
+import { SelectedItem } from "./components/SelectedItem";
 
 export function SelectSkip(): React.ReactElement {
   // const { t } = useTranslation(Namespace.SELECT_SKIP);
@@ -13,7 +14,10 @@ export function SelectSkip(): React.ReactElement {
 
   return (
     <PageLayout localizationKey="common:page.title">
-      <SearchBar onSearch={handleSearch} />
+      <section className="flex flex-col gap-8">
+        <SearchBar onSearch={handleSearch} />
+        <SelectedItem />
+      </section>
     </PageLayout>
   );
 }

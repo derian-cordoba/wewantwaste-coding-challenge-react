@@ -1,4 +1,6 @@
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from "react-i18next";
+import { Namespace } from "@/shared/utils/localization/namespaces";
 
 export type SearchBarProps = {
   // Search handler function
@@ -12,6 +14,8 @@ export function SearchBar({
   onSearch,
   onFilterClick,
 }: SearchBarProps): React.ReactElement {
+  const { t } = useTranslation(Namespace.SELECT_SKIP);
+
   // Wrapper function to handle search input changes`
   const handleSearchChange = async (
     event: React.ChangeEvent<HTMLInputElement>
@@ -26,7 +30,7 @@ export function SearchBar({
           type="text"
           name="search"
           onChange={handleSearchChange}
-          placeholder="Search"
+          placeholder={t("search.placeholder")}
           className="w-full py-2 px-4 text-white border border-[var(--border-light-gray-color)] rounded-[10px]"
         />
       </section>

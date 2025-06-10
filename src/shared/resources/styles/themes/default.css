@@ -1,10 +1,13 @@
 [data-theme="default"] {
-  --primary: #0573f0;
+  --primary: #007aff;
   --secondary: #0769da;
   --background: #121212;
   --medium-gray: #272727;
   --border-medium-gray: #383838;
   --border-light-gray: #727272;
+  --text-light-gray: #b4b4b4;
+  --yellow: #ff9500;
+  --yellow-opacity: rgba(255, 149, 0, 0.15);
 
   --font-body: "Nunito", sans-serif;
   --font-heading: "Poppins", sans-serif;
