@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { OnRoadStatus } from "@/modules/select-skip/types/on-road";
+import { cn } from "@/shared/utils/tailwind/merge";
 import { Namespace } from "@/shared/utils/localization/namespaces";
 import { Separator } from "./Separator";
 import { RangeSection } from "./RangeSection";
@@ -17,15 +19,19 @@ const MIN_HIDE_PERIOD_DAYS = 1;
 const MAX_HIDE_PERIOD_DAYS = 14;
 
 export type FilterPanelProps = {
+  showFilterMenu?: boolean;
+  onFilterClick?: () => Promise<void> | void;
   onPriceChange: (value: number) => Promise<void> | void;
   onHidePeriodChange: (value: number) => Promise<void> | void;
   onRoadChange: (value: OnRoadStatus) => Promise<void> | void;
 };
 
 export function FilterPanel({
+  showFilterMenu,
   onPriceChange,
   onHidePeriodChange,
   onRoadChange,
+  onFilterClick,
 }: FilterPanelProps): React.ReactElement {
   const { t } = useTranslation(Namespace.FILTER);
 
@@ -34,7 +40,22 @@ export function FilterPanel({
   };
 
   return (
-    <div className="flex flex-col gap-y-8 bg-gray-700/20 backdrop-blur-2xl py-12 px-8 rounded-xl border border-[var(--border-medium-gray-color)] z-50 absolute top-full mt-2 right-0">
+    <div
+      inert={!showFilterMenu}
+      className={cn(
+        "flex flex-col opacity-0 transition-opacity duration-200 pointer-events-none gap-y-8 bg-gray-700/20 backdrop-blur-2xl py-12 px-8 border border-[var(--border-medium-gray-color)] z-50 fixed w-full h-full max-md:inset-0 md:h-auto md:w-auto md:absolute md:top-full md:mt-2 md:right-0 md:rounded-xl",
+        {
+          "opacity-100 pointer-events-auto": showFilterMenu,
+        }
+      )}
+    >
+      <button
+        onClick={onFilterClick}
+        className="md:hidden absolute top-4 right-4 text-white cursor-pointer"
+      >
+        <XMarkIcon className="w-6 h-6" />
+      </button>
+
       <section className="flex flex-col gap-y-4">
         <p className="text-white text-lg">{t("title")}</p>
         <Separator />

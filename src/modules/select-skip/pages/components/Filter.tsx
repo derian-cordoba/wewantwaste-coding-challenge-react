@@ -40,13 +40,13 @@ export function Filter({
         <span className="text-white ml-2">{t("title")}</span>
       </button>
 
-      {showFilterMenu && (
-        <FilterPanel
-          onPriceChange={onPriceChange}
-          onHidePeriodChange={onHidePeriodChange}
-          onRoadChange={onRoadChange}
-        />
-      )}
+      <FilterPanel
+        showFilterMenu={showFilterMenu}
+        onFilterClick={onFilterClick}
+        onPriceChange={onPriceChange}
+        onHidePeriodChange={onHidePeriodChange}
+        onRoadChange={onRoadChange}
+      />
     </div>
   );
 }

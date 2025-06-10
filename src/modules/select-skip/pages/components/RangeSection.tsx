@@ -34,7 +34,7 @@ export function RangeSection({
         min={min}
         max={max}
         step={step}
-        className="w-full bg-[var(--primary-color)] min-w-[250px] rounded-full"
+        className="w-full bg-blue-700 min-w-[250px] rounded-full"
       />
       <div className="flex justify-between w-full text-white">
         <p>

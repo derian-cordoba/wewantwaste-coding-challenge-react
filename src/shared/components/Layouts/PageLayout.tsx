@@ -20,7 +20,7 @@ export function PageLayout({
   return (
     <div className="max-w-6xl mx-auto px-6">
       <Header />
-      <main className="my-8 xl:my-11">{children}</main>
+      <main className="mt-6 xl:my-11">{children}</main>
     </div>
   );
 }
