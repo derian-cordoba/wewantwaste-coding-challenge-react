@@ -8,6 +8,12 @@ export type FilterProps = {
   // Optional prop to control visibility of the filter panel
   showFilterMenu?: boolean;
 
+  // Optional prop to control the price filter
+  price?: number;
+
+  // Optional prop to control the hide period filter
+  hidePeriod?: number;
+
   // Filter button click handler
   onFilterClick?: () => Promise<void> | void;
 
@@ -22,6 +28,8 @@ export type FilterProps = {
 };
 
 export function Filter({
+  price,
+  hidePeriod,
   showFilterMenu,
   onFilterClick,
   onPriceChange,
@@ -41,6 +49,8 @@ export function Filter({
       </button>
 
       <FilterPanel
+        price={price}
+        hidePeriod={hidePeriod}
         showFilterMenu={showFilterMenu}
         onFilterClick={onFilterClick}
         onPriceChange={onPriceChange}

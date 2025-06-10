@@ -19,6 +19,8 @@ const MIN_HIDE_PERIOD_DAYS = 1;
 const MAX_HIDE_PERIOD_DAYS = 14;
 
 export type FilterPanelProps = {
+  price?: number;
+  hidePeriod?: number;
   showFilterMenu?: boolean;
   onFilterClick?: () => Promise<void> | void;
   onPriceChange: (value: number) => Promise<void> | void;
@@ -27,6 +29,8 @@ export type FilterPanelProps = {
 };
 
 export function FilterPanel({
+  price,
+  hidePeriod,
   showFilterMenu,
   onPriceChange,
   onHidePeriodChange,
@@ -63,7 +67,7 @@ export function FilterPanel({
 
       <section className="flex flex-col gap-y-4">
         <RangeSection
-          title={t("price")}
+          title={`${t("price")} (${price})`}
           min={MIN_PRICE_VALUE}
           max={MAX_PRICE_VALUE}
           symbol="£"
@@ -75,7 +79,7 @@ export function FilterPanel({
 
       <section className="flex flex-col gap-y-4">
         <RangeSection
-          title={t("hide.period.days")}
+          title={`${t("hide.period.days")} (${hidePeriod})`}
           min={MIN_HIDE_PERIOD_DAYS}
           max={MAX_HIDE_PERIOD_DAYS}
           currentValue={[1]}

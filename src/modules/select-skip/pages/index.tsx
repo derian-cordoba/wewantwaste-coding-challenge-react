@@ -51,6 +51,8 @@ export function SelectSkip(): React.ReactElement {
     <PageLayout localizationKey="common:page.title">
       <section className="flex flex-col gap-8">
         <Filter
+          price={price}
+          hidePeriod={hidePeriod}
           showFilterMenu={showFilterMenu}
           onFilterClick={toggleFilterMenu}
           onPriceChange={handlePriceChange}
