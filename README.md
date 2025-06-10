@@ -4,7 +4,7 @@ This project is a coding challenge for the "We want waste" initiative made with 
 
 ## Resources
 
-- [Live page](https://wewantwaste.com/)
+- [Live page](https://velvety-capybara-5a125c.netlify.app/)
 - [Figma design](https://www.figma.com/design/hbC87ZiEZase8HAYET6Z9d/We-want-waste---Design?node-id=0-1&t=TQe4fgK04cUX8agi-1)
 
 ## Getting Started
