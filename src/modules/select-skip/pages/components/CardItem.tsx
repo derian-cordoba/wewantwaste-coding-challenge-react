@@ -18,7 +18,7 @@ export function CardItem({
     <div className="flex flex-col gap-4 py-4 px-3 bg-white rounded-xl cursor-pointer relative">
       {/* Not allowd warning section */}
       {!item.allowed_on_road && (
-        <article className="flex gap-x-4 h-fit w-fit py-2 px-6 absolute top-0 right-0 rounded-bl-xl bg-red-600 text-white">
+        <article className="flex gap-x-4 h-fit w-fit py-2 px-4 absolute top-0 right-0 rounded-bl-xl bg-red-600 text-white text-sm">
           <ExclamationTriangleIcon className="w-6 h-6" />
           {t("item.not_allowed_on_road")}
         </article>
@@ -26,7 +26,7 @@ export function CardItem({
 
       <section>
         <img
-          className="w-full h-full object-cover rounded-xl"
+          className="w-full h-auto aspect-video object-cover rounded-xl"
           src={itemImageURL(item.size)}
           alt={`${item.size} Yard Skip`}
         />

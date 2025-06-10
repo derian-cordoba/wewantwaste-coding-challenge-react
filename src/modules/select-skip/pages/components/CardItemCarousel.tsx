@@ -1,4 +1,3 @@
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import type { SkipItem } from "@/modules/select-skip/types/SkipItem";
 import { CardItem } from "./CardItem";
 
@@ -10,20 +9,14 @@ export function CardItemCarousel({
   items,
 }: CardItemCarouselProps): React.ReactElement {
   return (
-    <div className="flex items-center justify-center gap-x-6">
-      <button className="rounded-full p-4 bg-[var(--border-medium-gray-color)] text-[var(--border-dark-gray-color)] cursor-pointer">
-        <ArrowLeftIcon className="w-6 h-6" />
-      </button>
-
-      <section className="flex gap-x-5 overflow-x-auto">
+    <div className="w-full overflow-x-auto">
+      <section className="flex gap-x-5 px-4 py-2 min-w-max">
         {items?.map((item: SkipItem) => (
-          <CardItem key={item.id} item={item} />
+          <article key={item.id} className="w-[400px] shrink-0">
+            <CardItem item={item} />
+          </article>
         ))}
       </section>
-
-      <button className="rounded-full p-4 bg-[var(--border-medium-gray-color)] text-[var(--border-dark-gray-color)] cursor-pointer">
-        <ArrowRightIcon className="w-6 h-6" />
-      </button>
     </div>
   );
 }

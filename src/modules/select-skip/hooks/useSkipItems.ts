@@ -31,7 +31,6 @@ export function useSkipItems(props?: UseSkipItemsProps): UseSkipItemsResponse {
         setIsLoading(true);
         const fetchedItems = await fetchSkipByLocation({ postCode, area });
         setItems(fetchedItems);
-        console.log("Fetched items:", fetchedItems);
       } catch (error) {
         setError(error as Error);
       } finally {
