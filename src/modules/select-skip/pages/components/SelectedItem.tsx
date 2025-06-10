@@ -21,13 +21,13 @@ export function SelectedItem({
     <div className="flex border border-[var(--border-medium-gray-color)] rounded-xl">
       <section className="w-1/3">
         <img
-          className="w-full h-full object-cover rounded-l-xl"
+          className="w-full h-full object-cover rounded-l-xl max-h-[400px]"
           src={itemImageURL(item.size)}
           alt={`${item.size} Yard Skip`}
         />
       </section>
 
-      <section className="flex flex-col justify-between w-4/6 relative py-6 px-[64px]">
+      <section className="flex flex-col justify-between gap-y-4 w-4/6 relative py-6 px-[64px]">
         {/* Not allowd warning section */}
         {!item.allowed_on_road && (
           <article className="flex gap-x-4 h-fit w-fit py-2 px-6 absolute right-0 bg-red-600 text-white">

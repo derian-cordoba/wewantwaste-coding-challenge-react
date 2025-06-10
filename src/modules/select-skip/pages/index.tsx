@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import type { SkipItem } from "../types/SkipItem";
 import { PageLayout } from "@/shared/components/Layouts/PageLayout";
 import { Loading } from "@/shared/components/Loading";
 import { SearchBar } from "./components/SearchBar";
@@ -6,15 +8,26 @@ import { CardItemCarousel } from "./components/CardItemCarousel";
 import { useSkipItems } from "../hooks/useSkipItems";
 
 export function SelectSkip(): React.ReactElement {
+  const [selectedItem, setSelectedItem] = useState<SkipItem | undefined>(
+    undefined
+  );
   const { items, isLoading } = useSkipItems();
-
-  // By default we will select the first item in the list
-  const [firstItem] = items;
 
   function handleSearch(searchTerm?: string): void {
     // Implement search logic here
     console.log("Search term:", searchTerm);
   }
+
+  // Update the selected item when an item is clicked
+  function handleItemClick(item: SkipItem): void {
+    setSelectedItem(item);
+  }
+
+  useEffect(() => {
+    // Update the selected item using the first item from the list
+    const [firstItem] = items;
+    setSelectedItem(firstItem);
+  }, [items]);
 
   if (isLoading) {
     return <Loading />;
@@ -24,8 +37,12 @@ export function SelectSkip(): React.ReactElement {
     <PageLayout localizationKey="common:page.title">
       <section className="flex flex-col gap-8">
         <SearchBar onSearch={handleSearch} />
-        <SelectedItem item={firstItem} />
-        <CardItemCarousel items={items} />
+        <SelectedItem item={selectedItem} />
+        <CardItemCarousel
+          items={items}
+          selectedItem={selectedItem}
+          onItemClick={handleItemClick}
+        />
       </section>
     </PageLayout>
   );
