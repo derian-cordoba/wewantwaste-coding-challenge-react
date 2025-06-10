@@ -27,7 +27,7 @@ export function SelectedItem({
         />
       </section>
 
-      <section className="flex flex-col w-4/6 relative py-6 gap-y-12 px-[64px]">
+      <section className="flex flex-col justify-between w-4/6 relative py-6 px-[64px]">
         {/* Not allowd warning section */}
         {!item.allowed_on_road && (
           <article className="flex gap-x-4 h-fit w-fit py-2 px-6 absolute right-0 bg-red-600 text-white">
