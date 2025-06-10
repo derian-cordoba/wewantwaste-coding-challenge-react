@@ -53,20 +53,22 @@ export function Header(): React.ReactElement {
   const lastRouteIndex = routes.length - 1;
 
   return (
-    <header className="min-w-full flex items-center whitespace-nowrap gap-x-8 py-6">
+    <header className="max-w-4/5 mx-auto flex justify-center items-center gap-x-4 py-6">
       {routes.map((route: HeaderElement, index: number) => (
-        <section className="w-full flex items-center gap-4">
+        <section className="w-full flex items-center gap-x-4">
           <a
             key={index}
             href={route.route || "#"}
-            className={`flex justify-center items-center gap-x-3 cursor-pointer ${
-              route.isActive ? "text-blue-500" : "text-gray-200"
-            }`}
+            className="flex items-center whitespace-nowrap gap-x-2 cursor-pointer"
           >
-            {route.icon}
+            <span
+              className={route.isActive ? "text-blue-700" : "text-gray-500"}
+            >
+              {route.icon}
+            </span>
 
             {/* Use localized label if available, otherwise fallback to label */}
-            <span>
+            <span className={route.isActive ? "text-white" : "text-gray-500"}>
               {(route.localizedLabelKey && t(route.localizedLabelKey)) ||
                 route.label}
             </span>
@@ -75,8 +77,8 @@ export function Header(): React.ReactElement {
           {/* Render separator only if the route has a separator and it's not the last route */}
           {route.hasSeparator && index < lastRouteIndex && (
             <div
-              className={`w-full h-px ${
-                route.isActive ? "bg-blue-500" : "bg-gray-200"
+              className={`w-15 h-px ${
+                route.isActive ? "bg-blue-700" : "bg-gray-500"
               }`}
             />
           )}

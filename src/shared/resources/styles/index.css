@@ -6,8 +6,16 @@
 @import "./themes/default.css" layer(base);
 
 @theme inline {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
+  --primary-color: var(--primary);
+  --secondary-color: var(--secondary);
+  --background-color: var(--background);
+  --medium-gray-color: var(--medium-gray);
+  --border-medium-gray-color: var(--border-medium-gray);
+  --border-light-gray-color: var(--border-light-gray);
+  --border-dark-gray-color: var(--border-dark-gray);
+  --text-light-gray-color: var(--text-light-gray);
+  --yellow-color: var(--yellow);
+  --yellow-opacity-color: var(--yellow-opacity);
 
   /* Fonts */
   --font-heading: var(--font-heading);

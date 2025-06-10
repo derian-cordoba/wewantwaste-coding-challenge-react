@@ -1,3 +1,14 @@
 {
-  "choose.your.skip.size": "Choose Your Skip Size"
+  "choose.your.skip.size": "Choose Your Skip Size",
+  "search": {
+    "placeholder": "Search"
+  },
+  "item": {
+    "title": "{{ size }} Yard Skip",
+    "description": "Imagery and information shown throughout this website may not reflect the exact shape or size specification, colours may vary, options and/or accessories may be featured at additional cost.",
+    "period_one": "{{ count }} day hire period",
+    "period_other": "{{ count }} days hire period",
+    "button": "Continue",
+    "not_allowed_on_road": "Not allowed on the road"
+  }
 }
