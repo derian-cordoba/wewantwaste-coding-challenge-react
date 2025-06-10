@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { OnRoadStatus } from "@/modules/select-skip/types/on-road";
 import { Namespace } from "@/shared/utils/localization/namespaces";
 import { Separator } from "./Separator";
 import { RangeSection } from "./RangeSection";
@@ -15,8 +16,22 @@ const MAX_PRICE_VALUE = 992;
 const MIN_HIDE_PERIOD_DAYS = 1;
 const MAX_HIDE_PERIOD_DAYS = 20;
 
-export function FilterPanel(): React.ReactElement {
+export type FilterPanelProps = {
+  onPriceChange: (value: number) => Promise<void> | void;
+  onHidePeriodChange: (value: number) => Promise<void> | void;
+  onRoadChange: (value: OnRoadStatus) => Promise<void> | void;
+};
+
+export function FilterPanel({
+  onPriceChange,
+  onHidePeriodChange,
+  onRoadChange,
+}: FilterPanelProps): React.ReactElement {
   const { t } = useTranslation(Namespace.FILTER);
+
+  const handleOnRoadChange = (value: OnRoadStatus) => {
+    onRoadChange(value);
+  };
 
   return (
     <div className="flex flex-col gap-y-8 bg-gray-700/20 backdrop-blur-2xl py-12 px-8 rounded-xl border border-[var(--border-medium-gray-color)] z-50 absolute top-full mt-2 right-0">
@@ -32,7 +47,7 @@ export function FilterPanel(): React.ReactElement {
           max={MAX_PRICE_VALUE}
           symbol="£"
           currentValue={[1]}
-          onChange={(value) => console.log(value)}
+          onChange={onPriceChange}
         />
         <Separator />
       </section>
@@ -43,7 +58,7 @@ export function FilterPanel(): React.ReactElement {
           min={MIN_HIDE_PERIOD_DAYS}
           max={MAX_HIDE_PERIOD_DAYS}
           currentValue={[1]}
-          onChange={(value) => console.log(value)}
+          onChange={onHidePeriodChange}
         />
         <Separator />
       </section>
@@ -52,21 +67,33 @@ export function FilterPanel(): React.ReactElement {
         <p className="text-white text-lg">{t("on.road")}</p>
 
         <article className="flex items-center gap-x-2">
-          <input type="radio" name="on-road" />
+          <input
+            type="radio"
+            name="on-road"
+            onChange={() => handleOnRoadChange(OnRoadStatus.NONE)}
+          />
           <label htmlFor="on-road" className="text-white">
             {t("radios.none")}
           </label>
         </article>
 
         <article className="flex items-center gap-x-2">
-          <input type="radio" name="on-road" />
+          <input
+            type="radio"
+            name="on-road"
+            onChange={() => handleOnRoadChange(OnRoadStatus.ALLOWED)}
+          />
           <label htmlFor="on-road" className="text-white">
             {t("radios.allowed")}
           </label>
         </article>
 
         <article className="flex items-center gap-x-2">
-          <input type="radio" name="on-road" />
+          <input
+            type="radio"
+            name="on-road"
+            onChange={() => handleOnRoadChange(OnRoadStatus.NOT_ALLOWED)}
+          />
           <label htmlFor="on-road" className="text-white">
             {t("radios.not.allowed")}
           </label>

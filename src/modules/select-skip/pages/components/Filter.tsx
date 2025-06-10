@@ -1,6 +1,7 @@
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 import { useTranslation } from "react-i18next";
 import { Namespace } from "@/shared/utils/localization/namespaces";
+import { OnRoadStatus } from "@/modules/select-skip/types/on-road";
 import { FilterPanel } from "./FilterPanel";
 
 export type FilterProps = {
@@ -9,11 +10,23 @@ export type FilterProps = {
 
   // Filter button click handler
   onFilterClick?: () => Promise<void> | void;
+
+  // Pop to handle price change
+  onPriceChange: (value: number) => Promise<void> | void;
+
+  // Prop to handle hide period change
+  onHidePeriodChange: (value: number) => Promise<void> | void;
+
+  // Prop to handle on-road change
+  onRoadChange: (value: OnRoadStatus) => Promise<void> | void;
 };
 
 export function Filter({
   showFilterMenu,
   onFilterClick,
+  onPriceChange,
+  onHidePeriodChange,
+  onRoadChange,
 }: FilterProps): React.ReactElement {
   const { t } = useTranslation(Namespace.SELECT_SKIP);
 
@@ -27,7 +40,13 @@ export function Filter({
         <span className="text-white ml-2">{t("title")}</span>
       </button>
 
-      {showFilterMenu && <FilterPanel />}
+      {showFilterMenu && (
+        <FilterPanel
+          onPriceChange={onPriceChange}
+          onHidePeriodChange={onHidePeriodChange}
+          onRoadChange={onRoadChange}
+        />
+      )}
     </div>
   );
 }

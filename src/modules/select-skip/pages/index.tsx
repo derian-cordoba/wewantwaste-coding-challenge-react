@@ -13,7 +13,13 @@ export function SelectSkip(): React.ReactElement {
     undefined
   );
   const { items, isLoading } = useSkipItems();
-  const { showFilterMenu, toggleFilterMenu } = useFilters();
+  const {
+    showFilterMenu,
+    toggleFilterMenu,
+    handlePriceChange,
+    handleHidePeriodChange,
+    handleOnRoadChange,
+  } = useFilters();
 
   // Update the selected item when an item is clicked
   function handleItemClick(item: SkipItem): void {
@@ -36,6 +42,9 @@ export function SelectSkip(): React.ReactElement {
         <Filter
           showFilterMenu={showFilterMenu}
           onFilterClick={toggleFilterMenu}
+          onPriceChange={handlePriceChange}
+          onHidePeriodChange={handleHidePeriodChange}
+          onRoadChange={handleOnRoadChange}
         />
         <SelectedItem item={selectedItem} />
         <CardItemCarousel
