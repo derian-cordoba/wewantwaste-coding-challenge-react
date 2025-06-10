@@ -1,5 +1,4 @@
 import type { SkipItem } from "@/modules/select-skip/types/SkipItem";
-import { CardItem } from "./CardItem";
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +6,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/shared/components/ui/carousel";
+import { CardItem } from "./CardItem";
+
 export type CardItemCarouselProps = {
   items: SkipItem[];
   selectedItem?: SkipItem;
@@ -27,6 +28,7 @@ export function CardItemCarousel({
       <CarouselContent>
         {items?.map((item: SkipItem) => (
           <CarouselItem
+            key={item.id}
             className="basis-1/4 select-none"
             onClick={() => onItemClick(item)}
           >

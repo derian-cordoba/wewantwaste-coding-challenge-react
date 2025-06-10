@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { SkipItem } from "../types/SkipItem";
+import type { SkipItem } from "@/modules/select-skip/types/SkipItem";
 import { PageLayout } from "@/shared/components/Layouts/PageLayout";
 import { Loading } from "@/shared/components/Loading";
 import { Filter } from "./components/Filter";
@@ -7,6 +7,7 @@ import { SelectedItem } from "./components/SelectedItem";
 import { CardItemCarousel } from "./components/CardItemCarousel";
 import { useSkipItems } from "../hooks/useSkipItems";
 import { useFilters } from "../hooks/useFilters";
+import { FilterBuilder } from "../utils/FilterBuilder";
 
 export function SelectSkip(): React.ReactElement {
   const [selectedItem, setSelectedItem] = useState<SkipItem | undefined>(
@@ -14,12 +15,22 @@ export function SelectSkip(): React.ReactElement {
   );
   const { items, isLoading } = useSkipItems();
   const {
+    price,
+    hidePeriod,
+    onRoad,
     showFilterMenu,
     toggleFilterMenu,
     handlePriceChange,
     handleHidePeriodChange,
     handleOnRoadChange,
   } = useFilters();
+
+  // Filter the items based on the selected filters
+  const filteredItems = new FilterBuilder(items)
+    .withHidePeriod(hidePeriod)
+    .withPrice(price)
+    .withOnRoad(onRoad)
+    .build();
 
   // Update the selected item when an item is clicked
   function handleItemClick(item: SkipItem): void {
@@ -28,9 +39,9 @@ export function SelectSkip(): React.ReactElement {
 
   useEffect(() => {
     // Update the selected item using the first item from the list
-    const [firstItem] = items;
+    const [firstItem] = filteredItems;
     setSelectedItem(firstItem);
-  }, [items]);
+  }, [filteredItems]);
 
   if (isLoading) {
     return <Loading />;
@@ -48,7 +59,7 @@ export function SelectSkip(): React.ReactElement {
         />
         <SelectedItem item={selectedItem} />
         <CardItemCarousel
-          items={items}
+          items={filteredItems}
           selectedItem={selectedItem}
           onItemClick={handleItemClick}
         />
