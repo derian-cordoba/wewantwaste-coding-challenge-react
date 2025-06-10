@@ -20,7 +20,7 @@ export function CardItem({
   return (
     <div
       className={cn(
-        "flex flex-col gap-4 py-4 px-3 bg-white rounded-lg cursor-pointer relative",
+        "flex flex-col gap-4 py-4 px-3 bg-white rounded-lg cursor-pointer relative overflow-hidden",
         isSelected
           ? "border-3 border-[var(--primary-color)]"
           : "border-transparent"
@@ -28,8 +28,8 @@ export function CardItem({
     >
       {/* Not allowd warning section */}
       {!item.allowed_on_road && (
-        <article className="flex gap-x-4 h-fit w-fit py-2 px-4 absolute top-0 right-0 rounded-bl-xl rounded-tr-lg bg-red-600 text-white text-sm">
-          <ExclamationTriangleIcon className="w-6 h-6" />
+        <article className="flex items-center gap-x-2 h-fit w-fit py-2 px-4 absolute top-0 right-0 rounded-bl-xl bg-red-600 text-white text-sm">
+          <ExclamationTriangleIcon className="w-4 h-4 lg:w-5 lg:h-5" />
           {t("item.not_allowed_on_road")}
         </article>
       )}

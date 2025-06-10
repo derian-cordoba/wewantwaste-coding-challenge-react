@@ -18,27 +18,26 @@ export function SelectedItem({
   const { t } = useTranslation(Namespace.SELECT_SKIP);
 
   return (
-    <div className="flex border border-[var(--border-medium-gray-color)] rounded-xl">
-      <section className="w-1/3">
+    <div className="flex relative flex-col border border-[var(--border-medium-gray-color)] overflow-hidden rounded-xl md:flex-row">
+      {/* Not allowd warning section */}
+      {!item.allowed_on_road && (
+        <article className="flex gap-x-4 h-fit w-fit py-2 px-6 absolute top-0 right-0 bg-red-600 text-white rounded-bl-xl">
+          <ExclamationTriangleIcon className="w-6 h-6" />
+          {t("item.not_allowed_on_road")}
+        </article>
+      )}
+      <section className="md:w-1/3">
         <img
-          className="w-full h-full object-cover rounded-l-xl max-h-[400px]"
+          className="w-full h-full object-cover max-h-[400px]"
           src={itemImageURL(item.size)}
           alt={`${item.size} Yard Skip`}
         />
       </section>
 
-      <section className="flex flex-col justify-between gap-y-8 w-4/6 relative py-6 px-[64px]">
-        {/* Not allowd warning section */}
-        {!item.allowed_on_road && (
-          <article className="flex gap-x-4 h-fit w-fit py-2 px-6 absolute right-0 bg-red-600 text-white">
-            <ExclamationTriangleIcon className="w-6 h-6" />
-            {t("item.not_allowed_on_road")}
-          </article>
-        )}
-
+      <section className="flex flex-col justify-between gap-y-6 py-6 px-8 md:px-16 md:w-4/6 md:relative">
         {/* Item title section */}
         <article className="flex flex-col gap-y-1">
-          <h2 className="text-white text-3xl font-semibold">
+          <h2 className="text-white text-2xl md:text-3xl font-semibold">
             {t("item.title", { size: item.size })}
           </h2>
 
@@ -61,7 +60,7 @@ export function SelectedItem({
             £{item.price_before_vat}
           </p>
 
-          <button className="flex justify-center items-center gap-x-2 px-20 py-4 bg-[var(--primary-color)] rounded-full text-white cursor-pointer">
+          <button className="flex justify-center items-center gap-x-2 px-8 py-2 bg-[var(--primary-color)] rounded-full text-white cursor-pointer hover:bg-blue-600 active:bg-blue-500 transition-colors duration-300 md:px-15 md:py-4">
             {t("item.button")}
             <ArrowRightIcon className="w-6 h-6" />
           </button>
