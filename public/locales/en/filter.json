@@ -1,0 +1,11 @@
+{
+  "title": "Filter",
+  "price": "Price",
+  "hide.period.days": "Hide period days",
+  "on.road": "On road",
+  "radios": {
+    "none": "None",
+    "allowed": "Allowed",
+    "not.allowed": "Not allowed"
+  }
+}
