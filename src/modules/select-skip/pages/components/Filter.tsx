@@ -28,7 +28,7 @@ export function Filter({
   onHidePeriodChange,
   onRoadChange,
 }: FilterProps): React.ReactElement {
-  const { t } = useTranslation(Namespace.SELECT_SKIP);
+  const { t } = useTranslation(Namespace.FILTER);
 
   return (
     <div className="relative self-end">

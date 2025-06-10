@@ -7,14 +7,14 @@ import { RangeSection } from "./RangeSection";
 // Constants for price range
 // For this coding-challenge, we are using a fixed range
 // For a real-world application, you would likely fetch these values from an API or a configuration
-const MIN_PRICE_VALUE = 240;
+const MIN_PRICE_VALUE = 278;
 const MAX_PRICE_VALUE = 992;
 
 // Constants for hide period range
 // For this coding-challenge, we are using a fixed range
 // For a real-world application, you would likely fetch these values from an API or a configuration
 const MIN_HIDE_PERIOD_DAYS = 1;
-const MAX_HIDE_PERIOD_DAYS = 20;
+const MAX_HIDE_PERIOD_DAYS = 14;
 
 export type FilterPanelProps = {
   onPriceChange: (value: number) => Promise<void> | void;
