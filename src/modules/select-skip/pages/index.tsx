@@ -39,9 +39,9 @@ export function SelectSkip(): React.ReactElement {
 
   useEffect(() => {
     // Update the selected item using the first item from the list
-    const [firstItem] = filteredItems;
+    const [firstItem] = items;
     setSelectedItem(firstItem);
-  }, [filteredItems]);
+  }, [items]);
 
   if (isLoading) {
     return <Loading />;

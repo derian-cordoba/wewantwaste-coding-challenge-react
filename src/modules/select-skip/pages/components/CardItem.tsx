@@ -21,7 +21,9 @@ export function CardItem({
     <div
       className={cn(
         "flex flex-col gap-4 py-4 px-3 bg-white rounded-lg cursor-pointer relative",
-        isSelected ? "border-3 border-primary-color" : "border-transparent"
+        isSelected
+          ? "border-3 border-[var(--primary-color)]"
+          : "border-transparent"
       )}
     >
       {/* Not allowd warning section */}
@@ -42,7 +44,7 @@ export function CardItem({
 
       <section className="flex justify-between">
         <article className="flex flex-col gap-y-1">
-          <h2 className="text-primary-color text-base font-semibold">
+          <h2 className="text-[var(--primary-color)] text-base font-semibold">
             {t("item.title", { size: item.size })}
           </h2>
 
@@ -53,7 +55,7 @@ export function CardItem({
           </p>
         </article>
 
-        <article className="flex justify-center items-center px-6 py-1 bg-primary-color rounded-full cursor-pointer">
+        <article className="flex justify-center items-center px-6 py-1 bg-[var(--primary-color)] rounded-full cursor-pointer">
           <p className="text-base text-white">£{item.price_before_vat}</p>
         </article>
       </section>

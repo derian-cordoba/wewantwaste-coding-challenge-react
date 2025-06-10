@@ -57,11 +57,11 @@ export function SelectedItem({
         {/* Item price + continue button section */}
         <article className="flex justify-between items-center">
           {/* For this coding-challenge, I will skip the internationalization, so, for all items, will use the "£" symbol */}
-          <p className="text-3xl text-primary-color">
+          <p className="text-3xl text-[var(--primary-color)]">
             £{item.price_before_vat}
           </p>
 
-          <button className="flex justify-center items-center gap-x-2 px-20 py-4 bg-primary-color rounded-full text-white cursor-pointer">
+          <button className="flex justify-center items-center gap-x-2 px-20 py-4 bg-[var(--primary-color)] rounded-full text-white cursor-pointer">
             {t("item.button")}
             <ArrowRightIcon className="w-6 h-6" />
           </button>
